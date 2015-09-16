@@ -30,3 +30,9 @@ RUN sudo apt-get install -y \
 
 RUN pip install awscli
 RUN aws --version
+
+RUN apt-get install -y \
+    nodejs \
+    npm
+
+RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
