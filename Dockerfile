@@ -36,3 +36,7 @@ RUN apt-get install -y \
     npm
 
 RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
+
+RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 > /usr/local/bin/jq && \
+    chmod +x /usr/local/bin/jq && \
+    echo '{"test":"jq ran successfully."}' | jq .test
