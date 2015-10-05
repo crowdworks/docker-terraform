@@ -45,6 +45,6 @@ RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 >
 
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository -y ppa:brightbox/ruby-ng
-RUN apt-get update && apt-get install -y ruby2.2
+RUN apt-get update && apt-get install -y ruby2.2 ruby2.2-dev
 
 RUN gem install bundler
