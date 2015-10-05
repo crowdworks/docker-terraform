@@ -1,6 +1,8 @@
 FROM  ubuntu
 MAINTAINER Yusuke KUOKA <yusuke.kuoka@crowdworks.co.jp>
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN locale -a
 RUN locale-gen ja_JP.UTF-8
 RUN locale-gen en_US.UTF-8
