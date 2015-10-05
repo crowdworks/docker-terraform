@@ -1,8 +1,6 @@
 FROM  ubuntu
 MAINTAINER Yusuke KUOKA <yusuke.kuoka@crowdworks.co.jp>
 
-ENV DEBIAN_FRONTEND noninteractive
-
 RUN locale -a
 RUN locale-gen ja_JP.UTF-8
 RUN locale-gen en_US.UTF-8
@@ -42,9 +40,3 @@ RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 > /usr/local/bin/jq && \
     chmod +x /usr/local/bin/jq && \
     echo '{"test":"jq ran successfully."}' | jq .test
-
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository -y ppa:brightbox/ruby-ng
-RUN apt-get update && apt-get install -y ruby2.2
-
-RUN gem install bundler
