@@ -23,7 +23,11 @@ RUN cp -R terraform-dir/* /usr/local/bin
 
 RUN curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -P chefdk
 
-ENV PATH /root/.chefdk/gem/ruby/2.1.0/bin:$PATH
+RUN echo 'eval "$(chef shell-init bash)"' > /etc/profile.d/chefdk.sh
+ENV PATH "/opt/chefdk/bin:/root/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ENV GEM_ROOT "/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+ENV GEM_HOME "/root/.chefdk/gem/ruby/2.1.0"
+ENV GEM_PATH "/root/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
 
 RUN chef gem install knife-ec2 kitchen-ec2 kitchen-vagrant serverspec rake
 
