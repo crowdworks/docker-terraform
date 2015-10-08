@@ -31,7 +31,12 @@ ENV GEM_PATH "/root/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.
 
 RUN chef gem install specific_install
 RUN chef gem specific_install -l https://github.com/crowdworks/kitchen-ec2.git -b fix-regression
-RUN chef gem install knife-ec2 kitchen-vagrant serverspec rake
+RUN chef gem install \
+    knife-ec2 \
+    knife-zero \
+    kitchen-vagrant \
+    serverspec \
+    rake
 
 RUN sudo apt-get install -y \
     python-pip
