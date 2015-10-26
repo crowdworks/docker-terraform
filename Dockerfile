@@ -7,12 +7,16 @@ RUN locale -a
 RUN locale-gen ja_JP.UTF-8
 RUN locale-gen en_US.UTF-8
 
-RUN apt-get update
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
     curl \
     autoconf \
     unzip \
-    git
+    git \
+    # for awscli
+    python-pip \
+    libxml2-dev \
+    nodejs \
+    npm
 
 RUN curl -L https://github.com/github/hub/releases/download/v2.2.1/hub-linux-386-2.2.1.tar.gz | tar zxvf -
 RUN cp hub-linux-386-2.2.1/hub /usr/local/bin/hub
@@ -38,20 +42,11 @@ RUN chef gem install \
     serverspec \
     rake
 
-RUN sudo apt-get install -y \
-    python-pip
-
-RUN pip install awscli
-RUN aws --version
-
-RUN apt-get install -y \
-    nodejs \
-    npm
-
-RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
-
 RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 > /usr/local/bin/jq && \
     chmod +x /usr/local/bin/jq && \
     echo '{"test":"jq ran successfully."}' | jq .test
 
-RUN apt-get install -y libxml2-dev
+RUN pip install awscli
+RUN aws --version
+
+RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
