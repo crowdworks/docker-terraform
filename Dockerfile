@@ -40,7 +40,8 @@ RUN chef gem install \
     knife-zero \
     kitchen-vagrant \
     serverspec \
-    rake
+    rake \
+    sshkit
 
 RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 > /usr/local/bin/jq && \
     chmod +x /usr/local/bin/jq && \
