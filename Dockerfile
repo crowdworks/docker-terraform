@@ -41,7 +41,8 @@ RUN chef gem install \
     kitchen-vagrant \
     serverspec \
     rake \
-    sshkit
+    sshkit \
+    joumae:0.2.1
 
 RUN curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 > /usr/local/bin/jq && \
     chmod +x /usr/local/bin/jq && \
