@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
     python-pip \
     libxml2-dev \
     nodejs \
-    npm
+    npm \
+    parallel
 
 RUN curl -L https://github.com/github/hub/releases/download/v2.2.1/hub-linux-386-2.2.1.tar.gz | tar zxvf -
 RUN cp hub-linux-386-2.2.1/hub /usr/local/bin/hub
