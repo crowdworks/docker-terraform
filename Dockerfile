@@ -22,11 +22,7 @@ RUN apt-get update && apt-get install -y \
 RUN curl -L https://github.com/github/hub/releases/download/v2.2.1/hub-linux-386-2.2.1.tar.gz | tar zxvf -
 RUN cp hub-linux-386-2.2.1/hub /usr/local/bin/hub
 
-RUN curl -L https://dl.bintray.com/mitchellh/terraform/terraform_0.6.6_linux_amd64.zip -O
-RUN unzip terraform_0.6.6_linux_amd64.zip -d terraform-dir
-RUN cp -R terraform-dir/* /usr/local/bin
-
-RUN curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -P chefdk
+RUN curl -L https://www.opscode.com/chef/install.sh | bash -s -- -P chefdk
 
 RUN echo 'eval "$(chef shell-init bash)"' > /etc/profile.d/chefdk.sh
 ENV PATH "/opt/chefdk/bin:/root/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
