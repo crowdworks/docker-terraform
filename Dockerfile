@@ -25,10 +25,10 @@ RUN cp hub-linux-386-2.2.1/hub /usr/local/bin/hub
 RUN curl -L https://www.opscode.com/chef/install.sh | bash -s -- -P chefdk
 
 RUN echo 'eval "$(chef shell-init bash)"' > /etc/profile.d/chefdk.sh
-ENV PATH "/opt/chefdk/bin:/root/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-ENV GEM_ROOT "/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
-ENV GEM_HOME "/root/.chefdk/gem/ruby/2.1.0"
-ENV GEM_PATH "/root/.chefdk/gem/ruby/2.1.0:/opt/chefdk/embedded/lib/ruby/gems/2.1.0"
+ENV PATH "/opt/chefdk/bin:/root/.chefdk/gem/ruby/2.3.0/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ENV GEM_ROOT "/opt/chefdk/embedded/lib/ruby/gems/2.3.0"
+ENV GEM_HOME "/root/.chefdk/gem/ruby/2.3.0"
+ENV GEM_PATH "/root/.chefdk/gem/ruby/2.3.0:/opt/chefdk/embedded/lib/ruby/gems/2.3.0"
 
 RUN chef gem install specific_install
 RUN chef gem specific_install -l https://github.com/crowdworks/kitchen-ec2.git -b fix-regression
