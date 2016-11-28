@@ -33,7 +33,7 @@ ENV GEM_PATH "/root/.chefdk/gem/ruby/2.3.0:/opt/chefdk/embedded/lib/ruby/gems/2.
 RUN chef gem install specific_install
 RUN chef gem specific_install -l https://github.com/crowdworks/kitchen-ec2.git -b fix-regression
 RUN chef gem install \
-    knife-ec2 \
+    test-kitchen:1.3.1 \
     knife-zero \
     kitchen-vagrant \
     serverspec \
